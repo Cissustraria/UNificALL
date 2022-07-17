@@ -1,0 +1,10 @@
+tasks:
+  - init: npm install && npm run build
+    command: 
+      export HMR_HOST= `gp ulr 5173`
+      npm run dev 
+
+ports:
+  - port: 5173
+    onOpen: open-browser
+
