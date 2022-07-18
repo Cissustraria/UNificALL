@@ -1,19 +1,22 @@
-import type { LoadOutput, RequestHandler } from "@sveltejs/kit";
-import type { RequestHandlerOutput } from "@sveltejs/kit";
+import type { RequestHandler } from "@sveltejs/kit";
+
+let unall = [];
 
 export const GET: RequestHandler = () => {
     return {
         status: 200,
-        body: "hello"
+        body: unall
         
     }
 }
 
-export const POST: RequestHandlerOutput<RequestHandler<{},FormData>> = (request) => {
-    console.log(request.body.get("text"));
-
+export const POST: RequestHandler<{}, FormData> = (request) => {
+    var text = request.request.body?.getReader().read().finally("text")
+    unall.push(text)
     return {
-        status: 200,
-        body: request.body.get("text")
+        status: 303,
+        headers: {
+            location: "/"
+        }
     }
 }
