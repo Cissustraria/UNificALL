@@ -45,8 +45,8 @@
 <div class="unall">
     <h1>{title}</h1>
     
-    <form action="" method="" class="new">
-        <input type="Text" name="tect" aria-label="Agregar a UN_ALL" placeholder="+ type a agregar a UN_ALL"/>
+    <form action="/unall.json" method="POST" class="new">
+        <input type="text" name="text" aria-label="Agregar a UN_ALL" placeholder="+ type a agregar a UN_ALL"/>
     </form>
     
     <UnallItem></UnallItem>
