@@ -1,4 +1,5 @@
 <script>
+    import "../app.css";
     import UnallItem from "../lib/unall-item.svelte";
 
     const title = "UnificALL | new ";
